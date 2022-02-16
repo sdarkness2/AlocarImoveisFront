@@ -1,0 +1,23 @@
+.addnew{
+  display: flex;
+  align-items: flex-start;
+  margin: auto;
+  width: 96%;
+  padding-bottom: 16px;
+}
+
+table{
+  width: 96%;
+  margin:auto;
+  min-width:min-content;
+}
+td th {
+  width: 12%;
+}
+
+.nothing {
+  padding-top: 15px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}

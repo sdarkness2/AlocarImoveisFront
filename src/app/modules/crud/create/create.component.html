@@ -1,0 +1,53 @@
+<div class="formContainer">
+  <h2>{{!hasImovel ? 'Tela de Cadastro': 'Tela de Edição'}}</h2>
+  <form [formGroup]="imovelForm">
+    <mat-form-field *ngIf="!hasCep" appearance="outline">
+      <mat-label>Cep</mat-label>
+      <input matInput placeholder="Simple placeholder" max="8" (keyup)="searchCEP($event)" formControlName="cep">
+        <mat-spinner matSuffix *ngIf="loadingCep"></mat-spinner>
+    </mat-form-field>
+
+    <div *ngIf="hasCep">
+      <p>Cep preenchido com sucesso</p>
+      <mat-form-field appearance="outline">
+        <mat-label>Estado</mat-label>
+        <input matInput placeholder="Simple placeholder" formControlName="estado">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Cidade</mat-label>
+        <input matInput placeholder="Simple placeholder" formControlName="cidade">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Bairro</mat-label>
+        <input matInput placeholder="Simple placeholder" formControlName="bairro">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Rua</mat-label>
+        <input matInput placeholder="Simple placeholder" formControlName="rua">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Numero</mat-label>
+        <input type="number" matInput placeholder="Simple placeholder" formControlName="numero">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Tipo</mat-label>
+        <mat-select formControlName="tipo">
+          <mat-option value="Casa">Casa</mat-option>
+          <mat-option value="Apartamento">Apartamento</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Valor</mat-label>
+        <input type="number" matInput placeholder="Simple placeholder" formControlName="preco">
+      </mat-form-field>
+
+      <button mat-raised-button (click)="submit()">{{!hasImovel ? 'Cadastrar': 'Editar'}}</button>
+    </div>
+  </form>
+</div>

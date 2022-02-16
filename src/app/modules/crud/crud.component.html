@@ -1,0 +1,61 @@
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading; else load"></mat-progress-bar>
+
+
+<ng-template #load>
+  <div class="addnew">
+    <button mat-raised-button routerLink="/criar" routerLinkActive="active">Adicionar Imovel</button>
+  </div>
+
+  <table mat-table [dataSource]="imoveis" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="Tipo">
+      <th mat-header-cell *matHeaderCellDef> Tipo </th>
+      <td mat-cell *matCellDef="let element"> {{element.tipo}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Rua">
+      <th mat-header-cell *matHeaderCellDef> Rua </th>
+      <td mat-cell *matCellDef="let element"> {{element.rua}} {{element.numero}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Bairro">
+      <th mat-header-cell *matHeaderCellDef> Bairro </th>
+      <td mat-cell *matCellDef="let element"> {{element.bairro}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Cidade">
+      <th mat-header-cell *matHeaderCellDef> Cidade </th>
+      <td mat-cell *matCellDef="let element"> {{element.cidade}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Estado">
+      <th mat-header-cell *matHeaderCellDef> Estado </th>
+      <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Preço">
+      <th mat-header-cell *matHeaderCellDef> Preço </th>
+      <td mat-cell *matCellDef="let element"> {{element.preco}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Publicação">
+      <th mat-header-cell *matHeaderCellDef> Publicação </th>
+      <td mat-cell *matCellDef="let element"> {{element.dataInicial}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Ações">
+      <th mat-header-cell *matHeaderCellDef> Ações </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="actions">
+          <button (click)="editImovel(element.id)">Edit</button>
+          <button (click)="desativarImovel(element.id)">Excluir</button>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <div class="nothing" *ngIf="!imoveis">Lista vazia.</div>
+</ng-template>

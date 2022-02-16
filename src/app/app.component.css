@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  align-items: center;
+  font-size: 30px;
+  flex-wrap: wrap;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  padding: 15px;
+}
+
+.body{
+  padding-top:10px;
+  margin-left: 20%;
+  margin-right: 20%;
+  box-shadow: 2px 1px 1px rgb(167, 167, 167);
+  height: auto;
+}

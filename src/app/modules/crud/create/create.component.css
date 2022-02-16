@@ -1,0 +1,19 @@
+mat-form-field {
+  display:flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 5px;
+}
+
+input {
+  width: 100%;
+}
+
+mat-spinner {
+  display: inline-flex;
+}
+
+.formContainer{
+  width: 100%;
+  height: 100%;
+}
